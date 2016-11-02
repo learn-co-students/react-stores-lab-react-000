@@ -10,13 +10,14 @@ class Store {
   addListener(newListener){
     this.listeners.push(newListener)
     const removeListener = () =>{
-      this.listeners = this.listeners.filter((l) => listener !== l)
+      this.listeners = this.listeners.filter((l) => newListener !== l)
     }
     return removeListener;
   }
   
   setState(state){
     this.state = state;
+    this.listeners.forEach(listener => listener(this.state));
   }
   
   getState(){

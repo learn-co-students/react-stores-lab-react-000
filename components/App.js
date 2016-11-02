@@ -26,14 +26,18 @@ class App extends React.Component {
   
   componentDidMount () {
     // Your implementation here.
+    this.removeListener = counterStore.addListener( state => {
+      this.setState({counter: state});
+    })
   }
   componentWillUnmount () {
     // Your implementation here.
+    this.removeListener();
   }
   render () {
     return (
       <div className='app'>
-        <h1 className='counter'></h1>
+        <h1 className='counter'>{this.state.counter}</h1>
         <div className='actions'>
           <button className='decrement' onClick={this.handleDecrement}>
             -

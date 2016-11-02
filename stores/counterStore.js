@@ -7,6 +7,14 @@ class CounterStore extends Store {
     super(0)
   }
   
+  increment(){
+    this.setState(this.state + 1);
+  }
+  
+  decrement(){
+    this.setState(this.state - 1);
+  }
+  
 }
 
 module.exports = new CounterStore();
