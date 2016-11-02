@@ -1,11 +1,11 @@
 const React = require('react');
+const counterStore = require('../stores/counterStore')
 
 class App extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {
-      // Your implementation here.
-    };
+    debugger;
+    this.state = counterStore.getState();
   }
   componentDidMount () {
     // Your implementation here.
