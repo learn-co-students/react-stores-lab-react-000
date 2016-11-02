@@ -6,13 +6,24 @@ class App extends React.Component {
   constructor (props) {
     super(props);
     
-    this.handleIncrement = actions.increment.bind(this);
-    this.handleDecrement = actions.decrement.bind(this);
+    this.handleIncrement = this.handleIncrement.bind(this);
+    this.handleDecrement = this.handleDecrement.bind(this);
     
     this.state = {
       counter: counterStore.getState()
     }
   }
+  
+  handleIncrement(ev){
+    ev.preventDefault();
+    actions.increment();
+  }
+  
+  handleDecrement(ev){
+    ev.preventDefault();
+    actions.decrement();
+  }
+  
   componentDidMount () {
     // Your implementation here.
   }
